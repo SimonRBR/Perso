@@ -1,6 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.17" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SmolPass.Contracts\SmolPass.Contracts.csproj" />
     <ProjectReference Include="..\SmolPass.Domain\SmolPass.Domain.csproj" />
   </ItemGroup>
 
