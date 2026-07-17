@@ -25,13 +25,13 @@ namespace SmolPass.Application.UseCases.Auth
 
             //Eviter les tentatives d'un hacker de deviner ce qui serait KO/OK en normalisant le test via un dummyHash si 
             //user n'est pas récupéré.
-            byte[] storedHash = user.AuthHash ?? _dummyHash;
+            byte[] storedHash = user?.AuthHash ?? _dummyHash;
 
             bool isValid = CryptographicOperations.FixedTimeEquals(storedHash, request.AuthHash);
 
             if(user == null ||!isValid)
             {
-                return Result<User>.Failure("Identifiants inconnus.");
+                return Result<User>.Failure("Identifiants invalides.");
             }
 
             return Result<User>.Success(user);

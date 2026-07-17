@@ -14,7 +14,7 @@ namespace SmolPass.Application.UseCases.Auth
             _userRepository = userRepository;
         }
 
-        public async Task<Result<LoginInitResponse>> ExecuteAsync(string email, CancellationToken cancellationToken)
+        public async Task<Result<LoginInitResponse>> ExecuteAsync(string email, CancellationToken cancellationToken = default)
         {
             User? user = await _userRepository.GetByEmailAsync(email, cancellationToken);
 
