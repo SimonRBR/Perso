@@ -1,4 +1,5 @@
 ﻿
+
 using Microsoft.AspNetCore.Mvc;
 using SmolPass.Api.Services;
 using SmolPass.Application.Common;
@@ -44,6 +45,7 @@ public sealed class AuthController : ControllerBase
         return Created($"/api/auth/users/{result.Value.Id}", response);
     }
 
+    
     [HttpGet("login-init")]
     public async Task<IActionResult> LoginInit(
         [FromQuery] string email, CancellationToken cancellationToken)
